@@ -90,15 +90,7 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="content-right">
-              
-                <van-image
-                  @click="information = !information"
-                  round
-                  class="right-img"
-                  src="../../../../static/img/icon-10014.png"
-                />
-              </div> -->
+            
             </div>
           </div>
         </div>
