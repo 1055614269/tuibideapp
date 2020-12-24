@@ -1,0 +1,201 @@
+@import "../../general-style";
+@import "../index";
+.suspended-interface {
+    width: 72%;
+    height: 70px;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 40px;
+    left: calc(50% - 36%);
+    background: linear-gradient(-90deg, #F5F5F5, #FFFFFF);
+    box-shadow: 0px 1px 30px 0px rgba(134, 151, 173, 0.6);
+    border-radius: 10px;
+    .s-tab-content {
+        width: calc(100% - 80px);
+        float: left; // background-color: antiquewhite;
+        .tabs {
+            line-height: 48px;
+            height: 60px; // background-color: aquamarine;
+            // box-shadow: 0 2px 8px #0000001f;
+            .tab {
+                opacity: 0.7;
+                .tab-nr {
+                    margin: 0 auto; // width: 85px;
+                    height: 100%;
+                } // background-color: beige;
+                // width: (100% / 4);
+                float: left;
+                text-align: center;
+                position: relative;
+                top: calc(50% - 20px); // height: 75px;
+                // line-height: 75px;
+                .tab-img {
+                    // float: left;
+                    height: 30px;
+                    width: 30px;
+                    margin-top: 7px;
+                    margin: 0 auto;
+                }
+                .tab-t {
+                    height: 20px;
+                    line-height: 20px;
+                    font-size: 12px;
+                }
+                &:before {
+                    content: " ";
+                    position: absolute;
+                    width: 1px;
+                    height: 15px;
+                    float: right;
+                    margin-left: -50%;
+                    margin-top: 18px;
+                    background-color: #0000001a;
+                }
+            }
+        }
+    }
+    .select-all {
+        width: 80px;
+        height: 100%; // background-color: #2FB0FF;
+        float: left;
+        /deep/.van-checkbox {
+            position: relative;
+            top: calc(50% - 10px);
+            left: calc(50% - 28px);
+            width: 56px;
+            float: left;
+        }
+    }
+}
+
+.hot-cloud-data {
+  
+    .search-img {
+        width: 20px;
+        height: 20px;
+        margin-left: 6px;
+        margin-right: 4px;
+        position: relative;
+        top: 6px;
+    }
+    .contents {
+        padding: 10px;
+        .content {
+            //    padding: 10px;
+            padding-bottom: 40px;
+            height: 90px; //   background-color: antiquewhite;
+            .content-left {
+                height: 100%; // line-height: 80px;
+                width: 50px; // background-color: aquamarine;
+                float: left;
+                .checkbox {
+                    height: 20px;
+                    width: 20px;
+                    margin: 0 auto;
+                    position: relative;
+                    top: calc(50% - 10px);
+                }
+            }
+            .content-nr {
+                float: left;
+                height: 110px;
+                width: calc(100% - 50px); // background-color: rgb(235, 235, 42);
+                border-bottom: 1px solid #0000000d;
+                .nr {
+                    float: left;
+                    height: 100%;
+                    width: 100%;
+                    .user-portrait {
+                        float: left;
+                        height: 100%;
+                        .user-img {
+                            width: 50px;
+                            height: 50px;
+                            position: relative;
+                            top: calc(50% - 35px);
+                        }
+                    }
+                }
+                .val {
+                    float: left; //   background-color: rgb(246, 252, 245);
+                    width: calc(100% - 130px);
+                    height: 90px;
+                    padding-left: 10px;
+                    color: #000000b3;
+                    .val-name {
+                        font-size: 12px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+                        overflow: hidden;
+                    }
+                    .val-slogan {
+                        //   width: calc(100% - 170px);
+                        height: 51px;
+                        font-size: 12px;
+                        margin: 5px 0;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        overflow: hidden;
+                    }
+                    .val-type {
+                        font-size: 12px;
+                        .t {
+                            position: relative;
+                            top: -1px;
+                            margin-left: 5px;
+                        }   
+                    }
+                }
+                .user-val{
+                    margin-bottom: 5px;
+                }
+                .p-top10{
+                    padding-top: 10px;
+                }
+                .p-top22{
+                    padding-top: 22px;
+                }
+                .customers-val{
+                    width: calc(100% - 60px);
+                }
+                .content-right {
+                    width: 50px;
+                    height: 100%; // background-color: tomato;
+                    float: right;
+                    .right-img {
+                        width: 30px;
+                        position: relative;
+                        top: calc(50% - 25px);
+                        left: calc(50% - 15px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/deep/.van-search__content--round {
+    border: 1px solid #00000080;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+/deep/.van-field__control {
+    font-size: 12px;
+    color: #0000004d;
+}
+
+/deep/.van-search {
+    padding-right: 15px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+/deep/.van-search__action {
+    color: #000000e6;
+}

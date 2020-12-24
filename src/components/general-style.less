@@ -1,0 +1,174 @@
+@red: red;
+@MinWidth: 1000px;
+// .head{
+//     height: 20px;
+// }
+.classification {
+    height: 20px; // background-color: aliceblue;    
+    line-height: 20px;
+    font-weight: 700;
+    margin: 6px 0;
+    color: rgba(0, 0, 0, 0.9);
+    .classification-img {
+        height: 14px;
+        width: 12px;
+    }
+    .t {
+        position: relative;
+        top: -1px;
+        font-family: SourceHanSansCN-Bold;
+    }
+    .entrance-title {
+        font-weight: 400;
+        font-family: SourceHanSansCN-Regular;
+        margin-left: 5px;
+        &:after {
+            content: " ";
+            position: relative;
+            width: 3px;
+            height: 14px;
+            float: left;
+            left: -5px;
+            top: 3px;
+            background-color: #2FB0FF;
+        }
+    }
+}
+
+.subhead {
+    margin-left: 20px;
+    font-family: SourceHanSansCN-Medium;
+    font-weight: 500;
+    color: rgba(5, 5, 5, 0.9);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.collection-entrance {
+    display: flow-root;
+    .entrance {
+        text-align: center;
+        float: left;
+        width: 75px;
+        margin: 8px 0;
+        .entrance-img {
+            height: 26px;
+            width: 26px;
+            margin: 0 auto;
+            .hot {
+                width: 22px;
+                height: 8px;
+                position: relative;
+                top: -68px;
+                right: -45px;
+            }
+        }
+        .hot-entrance-img {
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            .hot {
+                width: 22px;
+                height: 8px;
+                position: relative;
+                top: -68px;
+                right: -45px;
+            }
+        }
+        .entrance-name {
+            font-size: 10px;
+            margin-top: 3px; // background-color: #2FB0FF;
+        }
+        .hot-entrance-name {
+            font-size: 10px;
+            position: relative;
+            top: -10px;
+        }
+    }
+}
+
+/deep/.van-popup--center.van-popup--round {
+    border-radius: 7px;
+}
+
+.van-popup-screen {
+    padding: 20px;
+    .select-label {
+        span {
+            float: right;
+        }
+    }
+    .label {
+        // background-color: #2FB0FF;
+        width: 100%;
+        height: 150px;
+        margin: 10px 0;
+        overflow-x: auto;
+        overflow-y: auto;
+        scrollbar-width: none;
+        /* firefox */
+        -ms-overflow-style: none;
+        /* IE 10+ */
+        &::-webkit-scrollbar {
+            display: none;
+            /* Chrome Safari */
+        }
+        .label-box {
+            width: 800px;
+            height: 100%; // background-color: bisque;
+            .nr {
+                padding: 0 10px;
+                float: left;
+                margin: 12px 8px;
+                font-size: 12px;
+                border: 1px solid #00000080;
+            }
+            ._l {
+                border: 1px solid #4097ffe6;
+                color: #4097ffe6;
+            }
+            ._h {
+                border: 1px solid #ff5c5ce6;
+                color: #ff5c5ce6;
+            }
+        }
+    }
+    .button {
+        margin: 10px;
+        margin-top: 50px;
+    }
+    .scroll-bar-nr {
+        width: 100px;
+        margin: 0 auto;
+        pointer-events: none;
+        .scroll-bar {
+            width: 80px; //   height: 60px;
+            overflow: auto;
+            float: left;
+            margin: 5px;
+            border: none;
+        }
+        .scrollbar {
+            height: 2px;
+            margin: auto 0;
+        }
+        .scroll-bar-1::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            width: 1px;
+            /*高宽分别对应横竖滚动条的尺寸*/
+            height: 6px;
+        }
+        .scroll-bar-1::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #47B3FF;
+        }
+        .scroll-bar-1::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            background: #244C96;
+        }
+    }
+}
