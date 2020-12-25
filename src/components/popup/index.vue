@@ -78,19 +78,15 @@ export default {
   },
   //加载前执行
   created() {
-    // console.log(this.show);
-    // this.Show = this.value;
   },
 
   methods: {
     ok() {
       this.$emit("ok");
-      // this.Show = false;
       this.$emit("update:show", false);
     },
     no() {
       this.$emit("no");
-      // this.Show = false;
       this.$emit("update:show", false);
     },
   },

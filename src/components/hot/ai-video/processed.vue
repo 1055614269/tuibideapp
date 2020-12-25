@@ -39,7 +39,7 @@
         @load="onLoad"
       >
         <div class="content" v-for="item in list" :key="item">
-          <div class="content-left">
+            <div class="content-left" @click="()=>onVideoCard()">
             <van-image
               radius="8"
               width="100"
@@ -78,7 +78,8 @@
                     </div>
                     <div class="name">下载视频</div>
                   </div>
-                  <div class="t" @click="()=>onVideoCard()">
+                
+                      <div class="t" @click="()=>JumpEntrance('ReleaseVideo')">
                     <div class="img">
                       <van-image
                         round
@@ -164,7 +165,12 @@ export default {
   
     onVideoCard() {
       this.isVideoCard = true;
-    
+    },
+     JumpEntrance(to) {
+      if (to) {
+        // this.information2 = !this.information2;
+        this.$router.push({ path: "/" + to });
+      }
     },
     //进入全屏
     FullScreen() {

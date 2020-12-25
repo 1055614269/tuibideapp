@@ -1,5 +1,5 @@
 <template>
-  <div class="processed">
+  <div class="uploaded">
     <van-search
       v-model="SearchName"
       show-action
@@ -39,7 +39,7 @@
         @load="onLoad"
       >
         <div class="content" v-for="item in list" :key="item">
-          <div class="content-left">
+          <div class="content-left" @click="() => onVideoCard()">
             <van-image
               radius="8"
               width="100"
@@ -61,69 +61,72 @@
             <div class="nr">
               <div class="val">
                 <div class="val-name">
-                  视频文件名称
+                  <span
+                    class=""
+                    @click="uploadInformation = !uploadInformation"
+                  >
+                    视频文件名称
+                  </span>
+                  <van-icon
+                    class="icon"
+                    @click="uploadInformation = !uploadInformation"
+                    color="#228AFF"
+                    name="records"
+                  />
                   <span @click="clear" class="clear"
                     ><van-icon name="clear"
                   /></span>
                 </div>
-
                 <div class="val-entrance">
-                  <div class="t">
-                    <div class="img" @click="information2 = !information2">
-                      <van-image
-                        round
-                        class="right-img"
-                        src="../../../../static/img/icon-10014.png"
-                      />
-                    </div>
-                    <div class="name">下载视频</div>
-                  </div>
-                  <div class="t" @click="()=>onVideoCard()">
-                    <div class="img">
-                      <van-image
-                        round
-                        class="right-img"
-                        src="../../../../static/img/icon-10017.png"
-                      />
-                    </div>
-                    <div class="name">发布视频</div>
-                  </div>
+                  <span class="date">上传时间：2020/12/24</span>
                 </div>
               </div>
-            
             </div>
           </div>
         </div>
       </van-list>
     </div>
-
+    <PopupCard
+      title="已上传视频"
+      :ok_show="true"
+      :no_show="true"
+      @ok="modifyOk"
+      :show.sync="uploadInformation"
+      :data="data"
+    />
     <VideoCard :title="'视频详情'" :show.sync="isVideoCard" :url="''" />
   </div>
 </template>
 
 <script>
 import Popup from "@/components/popup"; //弹出框
+import PopupCard from "@/components/hot/popup-card"; //卡片
 import VideoCard from "@/components/hot/popup-card/video-card"; //弹出框
 import { Toast } from "vant";
 
 export default {
-  name: "Processed",
+  name: "Uploaded",
   components: {
     Popup: Popup,
     VideoCard: VideoCard,
+    PopupCard: PopupCard,
   },
   data() {
     return {
       SearchName: "",
       checked: "",
       list: [],
-
       loading: false,
       finished: false,
       information: false,
       information2: false,
+      uploadInformation: false,
       show: false,
       isVideoCard: false, //发布视频弹窗
+      data: [
+        { name: "视频名称", val: "视频文件名称", modify: true },
+        { name: "上传时间", val: "2020/12/2" },
+      ],
     };
   },
 
@@ -161,25 +164,21 @@ export default {
         }
       }, 1000);
     },
-  
+
     onVideoCard() {
       this.isVideoCard = true;
-    
     },
-    //进入全屏
-    FullScreen() {
-      var doc = document.documentElement;
-      if (doc.requestFullscreen) {
-        ele.requestFullscreen();
-      } else if (doc.mozRequestFullScreen) {
-        doc.mozRequestFullScreen();
-      } else if (ele.webkitRequestFullScreen) {
-        doc.webkitRequestFullScreen();
+    JumpEntrance(to) {
+      if (to) {
+        this.$router.push({ path: "/" + to });
       }
     },
     clear() {
       this.information = !this.information;
     },
+    modifyOk(){
+      console.log('OK');
+    }
   },
 
   //加载后执行
@@ -190,7 +189,7 @@ export default {
 <style lang="less" scoped>
 @import "index";
 
-.processed {
+.uploaded {
   .content-nr > .nr > .val {
     width: calc(100% - 10px) !important;
   }
@@ -200,22 +199,14 @@ export default {
     color: #3f88fe;
   }
   .val-entrance {
-    .t {
-      margin-top: 20px;
-      margin-right: 20px;
+    .date {
+      color: #000000b3;
+      font-size: 12px;
       float: left;
-      .img {
-        width: 40px;
-        height: 40px;
-        margin: 0 auto;
-        .right-img {
-          width: 40px;
-          height: 40px;
-        }
-      }
-      .name {
-        padding-top: 5px;
-      }
+      margin-top: 10px;
+    }
+    .icon {
+      float: left;
     }
   }
 }

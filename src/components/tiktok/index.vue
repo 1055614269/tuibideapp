@@ -145,28 +145,28 @@ export default {
         {
           name: "云数据",
           img: "../../static/img/icon-ysj.png",
-          to:"HotCloudData",
+          to: "HotCloudData",
           visual: true,
           bright: "../../static/img/icon-HOT.png",
         },
         {
           name: "AI视频",
           img: "../../static/img/icon-AI.png",
-           to:"AiVideo",
+          to: "AiVideo",
           visual: true,
           bright: "",
         },
         {
           name: "提取视频",
           img: "../../static/img/icon-tqsp.png",
-           to:"",
+          to: "ExtractVideo",
           visual: true,
           bright: "",
         },
         {
           name: "TBD学院",
           img: "../../static/img/icon-TBD.png",
-           to:"",
+          to: "TBDCollege",
           visual: true,
           bright: "",
         },
@@ -408,11 +408,11 @@ export default {
         }
       }
     },
-    JumpEntrance(_d){
-       if (_d.to) {
+    JumpEntrance(_d) {
+      if (_d.to) {
         this.$router.push({ path: "/" + _d.to });
-      } 
-    }
+      }
+    },
   },
 
   //加载后执行

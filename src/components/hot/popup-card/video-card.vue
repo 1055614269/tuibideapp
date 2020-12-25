@@ -41,8 +41,8 @@
               </div>
             </div>
             <div class="right">
-              <div class="t" @click="()=>JumpEntrance('ReleaseVideo')">
-                <div class="img">   
+              <div class="t" @click="() => JumpEntrance('ReleaseVideo')">
+                <div class="img">
                   <van-image
                     round
                     class="right-img"
@@ -108,10 +108,10 @@ export default {
         }
       );
     },
-      JumpEntrance(to){
-       if (to) {
+    JumpEntrance(to) {
+      if (to) {
         this.$router.push({ path: "/" + to });
-      } 
+      }
     },
     playPause() {
       var myVideo = this.$refs.myVideo;
@@ -157,10 +157,10 @@ export default {
         margin: 0 auto;
         padding-top: 16px;
         .right {
-            float: right;
+          float: right;
         }
         .left {
-            float: left;
+          float: left;
         }
         .t {
           .img {
@@ -172,8 +172,8 @@ export default {
               height: 40px;
             }
           }
-          .name{
-              padding-top: 5px;
+          .name {
+            padding-top: 5px;
           }
         }
       }
@@ -188,6 +188,7 @@ export default {
   }
   /deep/.van-popup--center.van-popup--round {
     border-radius: 15px;
+    box-shadow: 0px 4px 16px 0px #ffffff99;
   }
 }
 </style>

@@ -65,13 +65,13 @@
         <div @click="onSearch">搜索</div>
       </template>
     </van-search>
-     <Popup
-        :show.sync="information"
-        :ok_show="false"
-        :no_show="false"
-        :val="'下载中，请稍后'"
-        :img="'../../static/img/icon-10015.png'"
-      />
+    <Popup
+      :show.sync="information"
+      :ok_show="false"
+      :no_show="false"
+      :val="'下载中，请稍后'"
+      :img="'../../static/img/icon-10015.png'"
+    />
     <div class="contents">
       <van-list
         v-model="loading"
@@ -80,7 +80,7 @@
         @load="onLoad"
       >
         <div class="content" v-for="item in list" :key="item">
-          <div class="content-left">
+          <div class="content-left" @click="() => onVideoCard()">
             <van-image
               radius="8"
               width="100"
@@ -127,10 +127,12 @@
         </div>
       </van-list>
     </div>
+    <VideoCard :title="'视频详情'" :show.sync="isVideoCard" :url="''" />
   </div>
 </template>
 
 <script>
+import VideoCard from "@/components/hot/popup-card/video-card"; //弹出框
 import RoundProgressBar from "@/components/hot/round-progress-bar"; //进度条
 import Popup from "@/components/popup"; //弹出框
 import { Toast } from "vant";
@@ -140,6 +142,7 @@ export default {
   components: {
     RoundProgressBar: RoundProgressBar,
     Popup: Popup,
+    VideoCard: VideoCard,
   },
   // components: {},
   data() {
@@ -179,6 +182,7 @@ export default {
       loading: false,
       finished: false,
       information: false,
+      isVideoCard: false, //发布视频弹窗
       show: false,
       data: [
         { name: "作者昵称", val: "@我们的歌", copy: true },
@@ -227,6 +231,9 @@ export default {
           this.finished = true;
         }
       }, 1000);
+    },
+    onVideoCard() {
+      this.isVideoCard = true;
     },
     onShow() {
       this.show = !this.show;

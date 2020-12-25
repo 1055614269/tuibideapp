@@ -6,7 +6,8 @@ import Index from '@/components/index'//首页
 import HotCloudData from '@/components/hot/hot-cloud-data'//云数据
 import AiVideo from '@/components/hot/ai-video'//AI视频
 import ReleaseVideo from '@/components/hot/release-video'//发布视频
-
+import ExtractVideo from '@/components/hot/extract-video'//提取视频
+import TBDCollege from '@/components/hot/TBD-college'//TBD学院
 
 
 
@@ -91,7 +92,20 @@ export default new Router({
       name: 'ReleaseVideo',
       component: ReleaseVideo
     },
+    {
+      path: '/ExtractVideo',
+      name: 'ExtractVideo',
+      component: ExtractVideo
+    },
+    {
+      path: '/TBDCollege',
+      name: 'TBDCollege',
+      component: TBDCollege
+    },
     
+
+
+
     //-----------------------抖音页面--------------------------------
     {
       path: '/Tiktok/ScriptNormalBreed',

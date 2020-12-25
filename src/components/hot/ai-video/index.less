@@ -79,7 +79,15 @@
                         // height: 90px;
                         padding-left: 10px;
                         color: #000000b3;
-                        .val-name {}
+                        .val-name {
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 1;
+                            overflow: hidden;
+                            .name{
+                                float: left;
+                            }
+                        }
                         .val-slogan {
                             height: 55px;
                             margin: 5px 0;

@@ -22,10 +22,8 @@
     <div class="content">
       <CloudVideo v-show="tabName === '云视频库'" />
       <Processed v-show="tabName === '已处理'" />
-      <!-- <AccurateCustomers v-show="tabName === '精确客户'" /> -->
+      <Uploaded v-show="tabName === '已上传'" />
     </div>
-
-  
   </div>
 </template>
 
@@ -33,7 +31,7 @@
 import Head from "@/components/head";
 import CloudVideo from "@/components/hot/ai-video/cloud-video";
 import Processed from "@/components/hot/ai-video/processed";
-// import AccurateCustomers from "@/components/hot/ai-video/accurate-customers";
+import Uploaded from "@/components/hot/ai-video/uploaded";
 
 export default {
   name: "AiVideo",
@@ -41,15 +39,15 @@ export default {
     Head: Head,
     CloudVideo: CloudVideo,
     Processed: Processed,
-    // AccurateCustomers: AccurateCustomers,
+    Uploaded: Uploaded,
   },
   data() {
     return {
       tabName: "云视频库",
       tabs: [
-        { name: "云视频库",  choice: true },
-        { name: "已处理",  choice: false },
-        { name: "已上传",  choice: false },
+        { name: "云视频库", choice: true },
+        { name: "已处理", choice: false },
+        { name: "已上传", choice: false },
       ],
 
       checked: false,
@@ -67,9 +65,7 @@ export default {
     },
   },
   //加载前执行
-  created() {
-
-  },
+  created() {},
 
   methods: {
     tabChoice(_d) {
@@ -78,10 +74,9 @@ export default {
       });
 
       this.tabName = _d.name;
-  
+
       _d.choice = true;
     },
-   
 
     _tabChoice() {},
   },
@@ -93,6 +88,5 @@ export default {
 
 <style lang="less" scoped>
 @import "index";
-
 </style>
   

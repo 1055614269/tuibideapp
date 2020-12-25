@@ -10,7 +10,19 @@
           <van-row class="i" v-for="(_d, key) in data" :key="key">
             <div class="l">{{ _d.name }}：</div>
 
-            <div class="n" v-if="!_d.copy">{{ _d.val }}</div>
+            <div class="n" v-if="!_d.copy">
+              <span v-if="!_d.modify"> {{ _d.val }}</span>
+              <div class="n-field-box" v-else>
+                <van-field
+                  rows="1"
+                  autosize
+                  type="textarea"
+                  class="n-field"
+                  v-model="_d.val"
+                  placeholder="视频名称不得为空"
+                />
+              </div>
+            </div>
             <div class="_n" v-if="_d.copy">
               {{ _d.val }}
             </div>
@@ -25,6 +37,31 @@
                 >
               </span>
             </div>
+          </van-row>
+        </div>
+
+        <div class="popup-button" v-if="ok_show || no_show">
+          <van-row>
+            <van-col span="12">
+              <van-button
+                @click="no"
+                v-if="no_show"
+                class="button"
+                color="#384250"
+                size="small"
+                >{{ no_name }}</van-button
+              >
+            </van-col>
+            <van-col span="12">
+              <van-button
+                @click="ok"
+                v-if="ok_show"
+                class="button"
+                color="#4097FF"
+                size="small"
+                >{{ ok_name }}</van-button
+              >
+            </van-col>
           </van-row>
         </div>
       </div>
@@ -49,7 +86,22 @@ export default {
       type: String,
       default: "",
     },
-
+    ok_show: {
+      type: Boolean,
+      default: false,
+    },
+    no_show: {
+      type: Boolean,
+      default: false,
+    },
+    ok_name: {
+      type: String,
+      default: "是",
+    },
+    no_name: {
+      type: String,
+      default: "否",
+    },
     show: {
       //是否取消关注弹出框
       type: Boolean,
@@ -59,8 +111,7 @@ export default {
 
   //加载前执行
   created() {
-    // console.log(this.show);
-    // this.Show = this.value;
+
   },
 
   methods: {
@@ -80,6 +131,14 @@ export default {
           // console.log(e)
         }
       );
+    },
+    ok() {
+      this.$emit("ok");
+      this.$emit("update:show", false);
+    },
+    no() {
+      this.$emit("no");
+      this.$emit("update:show", false);
     },
   },
 
@@ -118,7 +177,7 @@ export default {
         float: left;
         width: calc(100% - 170px);
         text-align: left;
-           color: #000000b3;
+        color: #000000b3;
       }
       .r {
         text-align: right;
@@ -136,6 +195,19 @@ export default {
         text-align: left;
         color: #000000b3;
       }
+      .n-field-box {
+        position: relative;
+        top: -2px;
+      }
+      .n-field {
+        background-color: transparent;
+        border-bottom: 1px solid #00000033;
+        padding: 0;
+        /deep/.van-field__control {
+          color: #000000cc;
+          font-size: 14px;
+        }
+      }
       .copy-button {
         position: relative;
         // top: -6px;
@@ -148,6 +220,16 @@ export default {
         }
       }
     }
+    .popup-button {
+      text-align: center;
+      margin-top: 20px;
+      position: absolute;
+      bottom: 18px;
+      width: calc(100% - 40px);
+      .button {
+        width: 100px;
+      }
+    }
   }
   .close-popup {
     position: absolute;
@@ -158,6 +240,7 @@ export default {
   }
   /deep/.van-popup--center.van-popup--round {
     border-radius: 15px;
+    box-shadow: 0px 4px 16px 0px #ffffff99;
   }
 }
 </style>
